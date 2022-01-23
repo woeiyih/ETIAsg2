@@ -17,19 +17,11 @@ var students Students
 var StudentID string
 var db *sql.DB
 
-type Students struct { // map this type to the record in the table
+type Students struct {
 	StudentID   string
 	Name        string
 	Description string
 }
-
-/* For Console
-var ukey string
-    db.QueryRow("Select LEFT(MD5(rand()),16)").Scan(&ukey)
-    ukey = "S"+ukey
-*/
-
-//							Functions for MySQL Database										       //
 
 func CreateNewStudent(db *sql.DB, s Students) {
 	query := fmt.Sprintf("INSERT INTO Students VALUES ('%s', '%s', '%s')",
@@ -86,31 +78,6 @@ func SearchStudents(db *sql.DB, s Students) {
 	}
 }
 
-/*
-//Student using mobile phone number to login
-func StudentLogin(db *sql.DB, MobileNo string) (Student, string) {
-	query := fmt.Sprintf("SELECT * FROM Student WHERE MobileNo = '%s'", MobileNo)
-
-	results := db.QueryRow(query)
-	var errMsg string
-
-	switch err := results.Scan(&passengers.PassengerID, &passengers.FirstName, &passengers.LastName, &passengers.MobileNo, &passengers.EmailAdd); err {
-	case sql.ErrNoRows:
-		errMsg = "Mobile number not found. Passenger login failed."
-	case nil:
-	default:
-		panic(err.Error())
-	}
-
-	return students, errMsg
-}
-*/
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////
-////																								////
-////									Functions for HTTP											////
-////																								////
-////////////////////////////////////////////////////////////////////////////////////////////////////////
 func student(w http.ResponseWriter, r *http.Request) {
 
 	if r.Header.Get("Content-type") == "application/json" {
