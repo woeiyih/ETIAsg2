@@ -24,6 +24,7 @@ type Students struct {
 }
 
 func CreateNewStudent(db *sql.DB, s Students) {
+
 	query := fmt.Sprintf("INSERT INTO Students VALUES ('%s', '%s', '%s')",
 		s.StudentID, s.Name, s.Description)
 
