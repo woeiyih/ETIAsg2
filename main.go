@@ -215,14 +215,14 @@ func main() {
 	//handle the API connection
 	router := mux.NewRouter()
 
-	router.HandleFunc("/students", students).Methods("GET", "POST", "PUT", "DELETE")
+	router.HandleFunc("/students", student).Methods("GET", "POST", "PUT", "DELETE")
 
 	headersOk := handlers.AllowedHeaders([]string{"X-Requested-With", "Content-Type"})
 	originsOk := handlers.AllowedOrigins([]string{"*"})
 	methodsOk := handlers.AllowedMethods([]string{"GET", "POST", "PUT", "DELETE"})
 
-	fmt.Println("Student Microservice API --> Listening at port 8011")
-	log.Fatal(http.ListenAndServe(":8011", handlers.CORS(originsOk, headersOk, methodsOk)(router)))
+	fmt.Println("Student Microservice API --> Listening at port 8152")
+	log.Fatal(http.ListenAndServe(":8152", handlers.CORS(originsOk, headersOk, methodsOk)(router)))
 
 	/*router.HandleFunc("/students", student).Methods(
 		"GET", "POST", "PUT", "DELETE")

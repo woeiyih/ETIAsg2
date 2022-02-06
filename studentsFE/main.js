@@ -1,6 +1,6 @@
 async function displayAPIData() {
   //get API data
-  const response = await fetch("https://jsonplaceholder.typicode.com/posts");
+  const response = await fetch("http://localhost:8152/students");
   data = await response.json();
 
   //generate HTML code
