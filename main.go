@@ -221,8 +221,8 @@ func main() {
 	originsOk := handlers.AllowedOrigins([]string{"*"})
 	methodsOk := handlers.AllowedMethods([]string{"GET", "POST", "PUT", "DELETE"})
 
-	fmt.Println("Student Microservice API --> Listening at port 8152")
-	log.Fatal(http.ListenAndServe(":8152", handlers.CORS(originsOk, headersOk, methodsOk)(router)))
+	fmt.Println("Student Microservice API --> Listening at port 8150")
+	log.Fatal(http.ListenAndServe(":8150", handlers.CORS(originsOk, headersOk, methodsOk)(router)))
 
 	/*router.HandleFunc("/students", student).Methods(
 		"GET", "POST", "PUT", "DELETE")
