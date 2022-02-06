@@ -23,3 +23,29 @@ This project was created as part of an assignment for the Emerging Trends in IT 
  To implement the functions stated above, there needs to be a REST API developed that contains the information of the students. From the requirements, there needs to be at least four types of API request types: GET, PUT, POST and DELETE. Although there is no requirement to rely on another microservice to perform the functions, you still require to request API to obtain the information needed for student modules, results and timetable.
  
  Last but not least, a database has to be set up in order to provide a persistent platform where the student account information can be stored. It is recommended to use MySQL Workbench to host the database based on the way I have set it up. The structure of the DB is simple and can be found below.
+ 
+ StudentID VARCHAR (30) NOT NULL PRIMARY KEY, StudentName VARCHAR (30), DOB VARCHAR(30), Address VARCHAR (30), PhoneNumber VARCHAR (30)
+ 
+ # 3. Architecture Diagram
+ This microservice's structure is made up of a front-end application, the student microservice and a student database. It is very simple and a diagram will be appended below very soon.
+ 
+ # 4. Set-Up Instructions
+ Step 1. On the server, pull the three docker images for the project from DockerHub. 
+ 
+   docker pull woeiyih/asg2
+ 
+   docker pull woeiyih/woeiyih-students-database
+ 
+   docker pull woeiyih/woeiyih-students-frontend
+ 
+ Step 2. Run the containers.
+ 
+  docker run -d woeiyih/woeiyih-students-database
+ 
+   docker run -d woeiyih/asg2
+ 
+   docker run -d woeiyih/woeiyih-students-frontend
+ 
+ Step 3. The Front-End Page should be accessbile on http://10.31.11.11:8150/
+ 
+ 
